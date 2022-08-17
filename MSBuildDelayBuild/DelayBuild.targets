@@ -1,0 +1,11 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask TaskName="MSBuildDelayBuild.DelayBuild" AssemblyFile="MSBuildDelayBuild.dll" />
+
+	<PropertyGroup>
+		<BuildDelay Condition="'$(BuildDelay)'==''">30000</BuildDelay>
+	</PropertyGroup>
+	
+	<Target Name="_DelayBuild" BeforeTargets="BeforeCompile" >
+		<DelayBuild Delay="$(BuildDelay)" />
+	</Target>
+</Project>
